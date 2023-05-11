@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://pi2n3yktvis5"]
+
+[ext_resource type="Script" path="res://slime.gd" id="1_fpaa1"]
+[ext_resource type="SpriteFrames" uid="uid://baa66hxn3wv8l" path="res://resources/slime_animations.tres" id="2_3lhka"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cy168"]
+radius = 5.0
+
+[node name="Slime" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_fpaa1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_3lhka")
+animation = &"small_jump"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_cy168")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

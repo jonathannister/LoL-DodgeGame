@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://2vk0pbiau3wy"]
+
+[ext_resource type="PackedScene" uid="uid://pi2n3yktvis5" path="res://slime.tscn" id="1_ej53l"]
+[ext_resource type="Script" path="res://greenslime.gd" id="2_enwqa"]
+
+[node name="Slime" instance=ExtResource("1_ej53l")]
+modulate = Color(0.505882, 0.862745, 0.168627, 1)
+script = ExtResource("2_enwqa")
+
+[node name="CollisionShape2D" parent="." index="1"]
+modulate = Color(0.505882, 0.862745, 0.168627, 1)
