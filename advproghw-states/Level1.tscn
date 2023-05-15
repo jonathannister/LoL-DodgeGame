@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dp7a841w7gcs6"]
+[gd_scene load_steps=13 format=3 uid="uid://dp7a841w7gcs6"]
 
 [ext_resource type="Script" path="res://Level1.gd" id="1_yvlcq"]
 [ext_resource type="Texture2D" uid="uid://hnth4eumldgg" path="res://art/objects.png" id="3_nqrnu"]
 [ext_resource type="Texture2D" uid="uid://xxumwp3vqakm" path="res://art/plains.png" id="4_e3rxw"]
 [ext_resource type="Texture2D" uid="uid://phelkeb8wu7w" path="res://art/grass.png" id="5_ldsjc"]
 [ext_resource type="Texture2D" uid="uid://cj6a6l5f4lqbr" path="res://art/fences.png" id="6_q51bq"]
+[ext_resource type="PackedScene" uid="uid://bdtyqdwnf8qop" path="res://skeleton.tscn" id="7_p2os0"]
 [ext_resource type="PackedScene" uid="uid://cpqoood6v2hwx" path="res://Player.tscn" id="7_xolcy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6a3j6"]
@@ -341,6 +342,9 @@ texture = ExtResource("3_nqrnu")
 4:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:12/0/physics_layer_0/angular_velocity = 0.0
 4:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+15:6/0 = 0
+15:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+15:6/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5wnlj"]
 texture = ExtResource("4_e3rxw")
@@ -971,3 +975,30 @@ layer_2/tile_data = PackedInt32Array(-196613, 0, 9, -131077, 0, 10, -65541, 0, 1
 position = Vector2(517, 304)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("7_p2os0")]
+position = Vector2(99, 37)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("7_p2os0")]
+position = Vector2(1146, 656)
+
+[node name="CharacterBody2D3" parent="." instance=ExtResource("7_p2os0")]
+position = Vector2(821, 635)
+
+[node name="CharacterBody2D4" parent="." instance=ExtResource("7_p2os0")]
+position = Vector2(1004, 144)
+
+[node name="CharacterBody2D5" parent="." instance=ExtResource("7_p2os0")]
+position = Vector2(324, 92)
+
+[node name="CharacterBody2D6" parent="." instance=ExtResource("7_p2os0")]
+position = Vector2(120, 460)
+
+[node name="CharacterBody2D7" parent="." instance=ExtResource("7_p2os0")]
+position = Vector2(-83, 624)
+
+[node name="CharacterBody2D8" parent="." instance=ExtResource("7_p2os0")]
+position = Vector2(750, 16)
+
+[node name="CharacterBody2D9" parent="." instance=ExtResource("7_p2os0")]
+position = Vector2(-102, 92)

@@ -1,11 +1,11 @@
 class_name Skeleton extends Enemy
 
-enum State {LEFT, RIGHT, DYING, DEAD}
+enum State {LEFT, RIGHT, DYING, DEAD, REVIVE}
 
 
 var curstate = State.LEFT
 var state_time = 0.0
-var speed = 2
+var speed = 1.5
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,23 +33,36 @@ func switch_to(new_state: State):
 	elif new_state == State.DYING:
 		$AnimatedSprite2D.frame = 0
 		$AnimatedSprite2D.play("death")
+	elif new_state == State.REVIVE:
+		$AnimatedSprite2D.frame = 0 
+		$AnimatedSprite2D.play_backwards("death")
 	elif new_state == State.DEAD:
-		self.queue_free()
+		print("Dead")
+		pass 
 
 func _physics_process(delta):
 	# Update the amount of time you spent in the current state
 	state_time += delta
-	var dir = Vector2.ZERO
-	if curstate == State.LEFT: 
-		dir.x = -1
-	elif curstate == State.RIGHT:
-		dir.x = 1
+	var player = get_tree().get_root().find_child("Player",true,false)
+	var dir = (player.position -self.position).normalized()
+	var ang = rad_to_deg(dir.angle())
+	if curstate == State.LEFT || curstate == State.RIGHT:
+		if ang >-90 and ang <=90:
+			if curstate == State.RIGHT: switch_to(State.LEFT)
+		elif curstate == State.LEFT: switch_to(State.RIGHT)
 	
-	var collide = move_and_collide(dir * speed)	
-	if collide && curstate == State.LEFT:
-		switch_to(State.RIGHT)
-	elif collide && curstate == State.RIGHT:
+		var collide = move_and_collide(dir * speed)	
+		if collide && curstate == State.LEFT:
+			switch_to(State.RIGHT)
+		elif collide && curstate == State.RIGHT:
+			switch_to(State.LEFT)
+	elif curstate == State.DEAD && state_time >= 5.0:
+		switch_to(State.REVIVE)
+		print("Reviving")
+	elif curstate == State.REVIVE && state_time > 1.0:
 		switch_to(State.LEFT)
+	elif curstate == State.DYING && state_time > 0.5: 
+		switch_to(State.DEAD)
 	
 # This will be called by the game if this Slime is hit with a weapon
 func hit():
@@ -60,3 +73,5 @@ func hit():
 func _on_animated_sprite_2d_animation_finished():
 	if curstate == State.DYING:
 		switch_to(State.DEAD)
+	if curstate == State.REVIVE: 
+		switch_to(State.LEFT)
