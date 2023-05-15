@@ -6,6 +6,7 @@ enum State {LEFT, RIGHT, DYING, DEAD, REVIVE}
 var curstate = State.LEFT
 var state_time = 0.0
 var speed = 1.5
+var tot_time = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,9 +39,13 @@ func switch_to(new_state: State):
 		$AnimatedSprite2D.play_backwards("death")
 	elif new_state == State.DEAD:
 		print("Dead")
+		var player = get_tree().get_root().find_child("Player",true,false)
+		player.score += 5
 		pass 
 
 func _physics_process(delta):
+	tot_time += delta
+	speed = 2 + tot_time / 100
 	# Update the amount of time you spent in the current state
 	state_time += delta
 	var player = get_tree().get_root().find_child("Player",true,false)

@@ -11,7 +11,7 @@ func _process(delta):
 	var player = get_tree().get_root().find_child("Player",true,false)
 	var lost = player.lost 
 	if !lost: 
-		$Label.text = "Score: " + str(player.score)
+		$Label.text = "Score: " + str(int(player.score))
 	else: 
 		$Label.text = "You Lose."
 	

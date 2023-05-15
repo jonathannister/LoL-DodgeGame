@@ -16,7 +16,6 @@ func _ready():
 	
 
 func switch_to(new_state: State):
-	score += state_time
 	
 	curstate = new_state
 	state_time = 0.0
@@ -75,6 +74,7 @@ func update_movement_animation():
 
 func _physics_process(delta):
 	var dir = Vector2.ZERO
+	score += delta
 	# Setup a movement vector based on keyboard input
 	if Input.is_action_pressed("moveup"):
 		dir.y = -1
