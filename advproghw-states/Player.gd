@@ -36,7 +36,7 @@ func switch_to(new_state: State):
 		elif lastmovedir.y < 0:
 			$AnimatedSprite2D.play("stand_up")
 			$AnimatedSprite2D.flip_h = false 
-	elif new_state == State.ATTACK:
+	elif new_state == State.ATTACK && !lost:
 		$AnimatedSprite2D.frame = 0
 		$SwordArea.monitoring = true
 		
