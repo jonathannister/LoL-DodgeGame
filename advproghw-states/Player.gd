@@ -7,6 +7,8 @@ var speed = 5
 var lastmovedir: Vector2 = Vector2.ZERO
 var lastdir: Vector2 = Vector2.ZERO
 var state_time = 0.0
+var lost = false
+var score = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,8 +16,11 @@ func _ready():
 	
 
 func switch_to(new_state: State):
+	score += state_time
+	
 	curstate = new_state
 	state_time = 0.0
+	
 	
 	if new_state == State.IDLE:	
 		$SwordArea.monitoring = false
@@ -70,7 +75,6 @@ func update_movement_animation():
 
 func _physics_process(delta):
 	var dir = Vector2.ZERO
-	
 	# Setup a movement vector based on keyboard input
 	if Input.is_action_pressed("moveup"):
 		dir.y = -1
@@ -83,7 +87,11 @@ func _physics_process(delta):
 		
 	# Apply that movement and save the last vectors as part of our state so we can select which
 	# animation to play layer
-	move_and_collide(dir * speed)	
+	if !lost: 
+		var collide = move_and_collide(dir * speed)	
+		if collide: 
+			lost = true
+		
 	lastdir = dir
 	
 	if dir.length() > 0:
