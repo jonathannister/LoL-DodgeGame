@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://v3hx4rmubxq"]
+[gd_scene load_steps=3 format=3 uid="uid://v3hx4rmubxq"]
 
 [ext_resource type="Script" path="res://MenuControl.gd" id="1_6y3j0"]
+[ext_resource type="PackedScene" uid="uid://bxvgtosm7m132" path="res://nebula.tscn" id="2_que06"]
 
 [node name="MenuControl" type="Control"]
 layout_mode = 3
@@ -34,8 +35,19 @@ text = "Quit"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 447.0
+offset_top = 212.0
+offset_right = 700.0
+offset_bottom = 238.0
+text = "A Recreation of LoL Dodge Game"
+
+[node name="nebula" parent="." instance=ExtResource("2_que06")]
+position = Vector2(169, 312)
+scale = Vector2(3, 3)
+
+[node name="nebula2" parent="." instance=ExtResource("2_que06")]
+position = Vector2(968, 316)
+scale = Vector2(3, 3)
 
 [connection signal="pressed" from="VBoxContainer/startButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/descButton" to="." method="_on_desc_button_pressed"]

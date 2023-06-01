@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dp7a841w7gcs6"]
+[gd_scene load_steps=13 format=3 uid="uid://dp7a841w7gcs6"]
 
 [ext_resource type="Script" path="res://Level1.gd" id="1_yvlcq"]
 [ext_resource type="Texture2D" uid="uid://hnth4eumldgg" path="res://art/objects.png" id="3_nqrnu"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://phelkeb8wu7w" path="res://art/grass.png" id="5_ldsjc"]
 [ext_resource type="Texture2D" uid="uid://cj6a6l5f4lqbr" path="res://art/fences.png" id="6_q51bq"]
 [ext_resource type="Script" path="res://Control.gd" id="7_1v5hx"]
-[ext_resource type="PackedScene" uid="uid://bdtyqdwnf8qop" path="res://skeleton.tscn" id="7_p2os0"]
 [ext_resource type="PackedScene" uid="uid://cpqoood6v2hwx" path="res://Player.tscn" id="7_xolcy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6a3j6"]
@@ -997,30 +996,3 @@ offset_left = -20.0
 offset_top = -18.0
 offset_right = 31.0
 offset_bottom = 5.0
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("7_p2os0")]
-position = Vector2(99, 37)
-
-[node name="CharacterBody2D2" parent="." instance=ExtResource("7_p2os0")]
-position = Vector2(1146, 656)
-
-[node name="CharacterBody2D3" parent="." instance=ExtResource("7_p2os0")]
-position = Vector2(821, 635)
-
-[node name="CharacterBody2D4" parent="." instance=ExtResource("7_p2os0")]
-position = Vector2(1004, 144)
-
-[node name="CharacterBody2D5" parent="." instance=ExtResource("7_p2os0")]
-position = Vector2(324, 92)
-
-[node name="CharacterBody2D6" parent="." instance=ExtResource("7_p2os0")]
-position = Vector2(120, 460)
-
-[node name="CharacterBody2D7" parent="." instance=ExtResource("7_p2os0")]
-position = Vector2(-83, 624)
-
-[node name="CharacterBody2D8" parent="." instance=ExtResource("7_p2os0")]
-position = Vector2(750, 16)
-
-[node name="CharacterBody2D9" parent="." instance=ExtResource("7_p2os0")]
-position = Vector2(-102, 92)
