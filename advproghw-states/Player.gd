@@ -84,7 +84,10 @@ func _physics_process(delta):
 		dir.x = -1	
 	elif Input.is_action_pressed("moveright"):
 		dir.x = 1		
-		
+	elif Input.is_action_pressed("rightclick"):
+		var cursor_pos = get_global_mouse_position()
+		dir = (cursor_pos -self.position).normalized()
+		var ang = rad_to_deg(dir.angle())
 	# Apply that movement and save the last vectors as part of our state so we can select which
 	# animation to play layer
 	if !lost: 
@@ -132,7 +135,6 @@ func _on_sword_area_body_shape_entered(body_rid, body, body_shape_index, local_s
 	# Figure out which collision shape to use for our sword, and hit an enemy with it
 	if curstate == State.ATTACK and body != self:
 		var struck = false
-		
 		if lastmovedir.x > 0 and local_shape_index == 0:
 			struck = true
 		elif lastmovedir.x < 0 and local_shape_index == 1:
