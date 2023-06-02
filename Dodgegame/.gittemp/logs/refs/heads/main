@@ -1,0 +1,4 @@
+0000000000000000000000000000000000000000 a1ef801ac19da46ea03a73f2672c9f78d435321f Jake Poznanski <jakepoz@gmail.com> 1682012273 -0700	commit (initial): Initial commit
+a1ef801ac19da46ea03a73f2672c9f78d435321f 7d8c0f5f83f01e015b2a1080fd5f459d0f361cf3 Jake Poznanski <jakepoz@gmail.com> 1682012403 -0700	commit: Initial commit
+7d8c0f5f83f01e015b2a1080fd5f459d0f361cf3 393fd6fbc04dffbb0004229ebe6d1bc051f1f3a3 Jake Poznanski <jakepoz@gmail.com> 1682435814 -0700	pull --ff --recurse-submodules --progress origin: Fast-forward
+393fd6fbc04dffbb0004229ebe6d1bc051f1f3a3 6380fc0476f0ec02b8897f12068a9d1e4ba4a7b3 Jake Poznanski <jakepoz@gmail.com> 1682453862 -0700	commit: Updates when loading on school laptop

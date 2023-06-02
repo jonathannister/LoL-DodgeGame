@@ -1,0 +1,55 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpqoood6v2hwx"]
+
+[ext_resource type="Script" path="res://Player.gd" id="2"]
+[ext_resource type="SpriteFrames" uid="uid://j4nkbye6725o" path="res://resources/player_animations.tres" id="2_ooviq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_br6lv"]
+size = Vector2(21, 31)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("2_ooviq")
+animation = &"swing_right"
+frame = 3
+frame_progress = 1.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(1, -24)
+scale = Vector2(1, 1.75)
+polygon = PackedVector2Array(-9, 34, 12, 34, 10, 20, -9, 20, -11, 34)
+
+[node name="SwordArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 8
+monitoring = false
+
+[node name="SwordRight" type="CollisionPolygon2D" parent="SwordArea"]
+polygon = PackedVector2Array(28, 14, 72, 26, 31, 46, -9, 45, -32, 23, 11, 16)
+
+[node name="SwordLeft" type="CollisionPolygon2D" parent="SwordArea"]
+position = Vector2(-47, 1)
+polygon = PackedVector2Array(18, 19, 40, 20, 80, 39, 5, 49, -25, 24, 16, 19)
+
+[node name="SwordDown" type="CollisionPolygon2D" parent="SwordArea"]
+position = Vector2(-19, 16)
+polygon = PackedVector2Array(22, 10, 44, 14, 41, 49, 19, 80, 2, 45, 6, 10)
+
+[node name="SwordUp" type="CollisionPolygon2D" parent="SwordArea"]
+position = Vector2(-21, -24)
+polygon = PackedVector2Array(27, -9, 47, -5, 42, 42, 10, 42, -5, 38, 3, -7)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.5, 20.5)
+shape = SubResource("RectangleShape2D_br6lv")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_shape_entered" from="SwordArea" to="." method="_on_sword_area_body_shape_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
