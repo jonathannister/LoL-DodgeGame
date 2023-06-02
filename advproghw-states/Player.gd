@@ -92,8 +92,8 @@ func _physics_process(delta):
 	# animation to play layer
 	if !lost: 
 		var collide = move_and_collide(dir * speed)	
-		if collide: 
-			lost = true
+		#if collide: 
+			#lost = true
 		
 	lastdir = dir
 	
@@ -146,3 +146,7 @@ func _on_sword_area_body_shape_entered(body_rid, body, body_shape_index, local_s
 		
 		if struck and body is Enemy:
 			body.hit()
+
+
+func _on_area_2d_body_entered(body):
+	lost = true
