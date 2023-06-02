@@ -9,6 +9,7 @@ var lastdir: Vector2 = Vector2.ZERO
 var state_time = 0.0
 var lost = false
 var score = 0.0
+var dashing = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,7 +20,6 @@ func switch_to(new_state: State):
 	
 	curstate = new_state
 	state_time = 0.0
-	
 	
 	if new_state == State.IDLE:	
 		$SwordArea.monitoring = false
@@ -88,6 +88,17 @@ func _physics_process(delta):
 		var cursor_pos = get_global_mouse_position()
 		dir = (cursor_pos -self.position).normalized()
 		var ang = rad_to_deg(dir.angle())
+		
+	if Input.is_action_just_pressed("Dash"):
+		print("here")
+		if !dashing:
+			speed = 10
+			dashing = true
+		elif dashing: 
+			speed = 5
+			dashing = false
+		
+	#print(dashing)
 	# Apply that movement and save the last vectors as part of our state so we can select which
 	# animation to play layer
 	if !lost: 

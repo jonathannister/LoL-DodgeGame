@@ -40,7 +40,7 @@ func switch_to(new_state: State):
 	elif new_state == State.DEAD:
 		print("Dead")
 		var player = get_tree().get_root().find_child("Player",true,false)
-		player.score += 5
+		if !player.lost: player.score += 5
 		pass 
 
 func _physics_process(delta):

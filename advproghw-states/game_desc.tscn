@@ -28,7 +28,7 @@ offset_left = 200.0
 offset_top = 255.0
 offset_right = 937.0
 offset_bottom = 410.0
-text = "Dodge and Escape the Spawning Fireballs and Skeletons for as long as possible. Move either by WASD, arrow keys, or right clicking. Space to attack to kill skeletons. Score increases with time and skeleton kills. "
+text = "Dodge and Escape the Spawning Fireballs and Skeletons for as long as possible. Move either by WASD, arrow keys, or right clicking. Space to attack to kill skeletons. Tap c to turn sprinting on and off. Score increases with time and skeleton kills. "
 horizontal_alignment = 1
 autowrap_mode = 3
 
