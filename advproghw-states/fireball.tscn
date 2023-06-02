@@ -1,5 +1,6 @@
-[gd_scene load_steps=65 format=3 uid="uid://byuhkmv1pv6io"]
+[gd_scene load_steps=66 format=3 uid="uid://byuhkmv1pv6io"]
 
+[ext_resource type="Script" path="res://fireball.gd" id="1_i2l0d"]
 [ext_resource type="Texture2D" uid="uid://crgu0nbei2q7" path="res://resources/fire.png" id="1_ls17s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xyyd2"]
@@ -438,17 +439,22 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_as8x8"]
-radius = 7.0
-height = 44.0
+radius = 5.00253
+height = 41.9897
 
 [node name="Fireball" type="CharacterBody2D"]
+script = ExtResource("1_i2l0d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.98023e-08, -1)
+rotation = -1.58457
+scale = Vector2(0.99, 1)
 sprite_frames = SubResource("SpriteFrames_l04dr")
 animation = &"Burn"
 frame_progress = 0.90284
-speed_scale = 5.0
+speed_scale = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 5)
+position = Vector2(6, -4)
+rotation = 1.57334
 shape = SubResource("CapsuleShape2D_as8x8")
