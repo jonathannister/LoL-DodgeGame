@@ -458,6 +458,6 @@ frame_progress = 0.90284
 speed_scale = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(14.5, -4)
+position = Vector2(13.5, -3.5)
 rotation = 1.57334
 shape = SubResource("CapsuleShape2D_as8x8")

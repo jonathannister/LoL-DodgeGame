@@ -80,3 +80,6 @@ func _on_animated_sprite_2d_animation_finished():
 		switch_to(State.DEAD)
 	if curstate == State.REVIVE: 
 		switch_to(State.LEFT)
+
+func _on_area_2d_body_entered(body):
+	if curstate != State.DEAD: switch_to(State.DYING)
