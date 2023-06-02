@@ -13,5 +13,5 @@ func _process(delta):
 	if !lost: 
 		$Label.text = "Score: " + str(int(player.score))
 	else: 
-		$Label.text = "You Lose."
+		$Label.text = "You Lose. Score: " + str(int(player.score))
 	

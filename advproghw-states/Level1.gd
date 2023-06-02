@@ -26,10 +26,10 @@ func _process(delta):
 		skeleton2.position = Vector2(randf_range(1000, 1200), randf_range(0, 600))
 		add_child(skeleton1)
 		add_child(skeleton2)
-	if balltimer >= 1.0: 
+	if balltimer >= 0.5: 
 		balltimer = 0 
 		var fireball = fireball_scene.instantiate()
-		fireball.position = Vector2(randf_range(0, 1200), 0)
+		fireball.position = Vector2(randf_range(0, 1200), randf_range(0, 1200))
 		add_child(fireball)
 		
 		

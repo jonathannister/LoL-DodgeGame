@@ -439,8 +439,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_as8x8"]
-radius = 5.99998
-height = 41.9897
+radius = 4.50126
+height = 25.9974
 
 [node name="Fireball" type="CharacterBody2D"]
 scale = Vector2(2, 2)
@@ -458,6 +458,6 @@ frame_progress = 0.90284
 speed_scale = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(6, -4)
+position = Vector2(14.5, -4)
 rotation = 1.57334
 shape = SubResource("CapsuleShape2D_as8x8")

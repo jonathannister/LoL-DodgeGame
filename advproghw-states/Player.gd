@@ -74,7 +74,7 @@ func update_movement_animation():
 
 func _physics_process(delta):
 	var dir = Vector2.ZERO
-	score += delta
+	if !lost: score += delta
 	# Setup a movement vector based on keyboard input
 	if Input.is_action_pressed("moveup"):
 		dir.y = -1
